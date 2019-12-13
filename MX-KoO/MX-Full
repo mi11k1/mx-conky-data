@@ -73,8 +73,8 @@ ${voffset -13}${alignr}${offset -60}${top_mem mem 4} %
 # CPU
 ${voffset -8}${font Open Sans:Bold:size=10}${color0}CPU ${color EC0100}${hr 3}
 $color${font}Intel® Xeon® Processor E3-1241   ${freq_g cpu0}GHz $alignr $cpu%  
-${font}Core 0  ${color3}${execi 4 sensors | grep 'Core 0' | cut -c18-24} ${alignc 60}${color2}${cpubar cpu0}${color}
-${font}Core 1  ${color3}${execi 4 sensors | grep 'Core 1' | cut -c18-24} ${alignc 60}${color2}${cpubar cpu1}${color}
+${font}Core 0  ${color3}${execi 4 sensors | grep 'Core 0' | cut -c16-26} ${alignc 60}${color2}${cpubar cpu0}${color}
+${font}Core 1  ${color3}${execi 4 sensors | grep 'Core 1' | cut -c16-26} ${alignc 60}${color2}${cpubar cpu1}${color}
 ${font}Core 2  ${color3}${execi 4 sensors | grep 'Core 2' | cut -c18-24} ${alignc 60}${color2}${cpubar cpu2}${color}
 ${font}Core 3  ${color3}${execi 4 sensors | grep 'Core 3' | cut -c18-24} ${alignc 60}${color2}${cpubar cpu3}${color}
 
@@ -96,11 +96,11 @@ ${voffset -8}${font Open Sans:Bold:size=10}${color0}NETWORK ${color EC0100}${hr 
 #$color${font Open Sans:bold:size=8.5}External IP ${font}${alignr}${execi 60 curl http://google.com --connect-timeout 2 | grep -o "[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*"}$font
 #${voffset -14}$alignc${execpi 4 echo "\${font}\${color}ping: \${font Open Sans:bold:size=8.5}\${color6}$(ping -W 1 -c 1 8.8.8.8 -q | grep rtt | egrep [0-9]+\.[0-9]+ -o | head -n 2 | tail -n 1)\${font}\${color} ms"}
 
-${voffset -10}${font Open Sans:bold:size=8.5}Ethernet $font$alignr ${addr eth0}
-↑ ${upspeedf eth0} kb/s $alignr ${totalup eth0}
-${voffset -14}$alignc${upspeedgraph eth0 10,120  ff0000 0000ff}
-↓ ${downspeedf eth0} kb/s $alignr ${totaldown eth0}
-${voffset -14}$alignc${downspeedgraph eth0 10,120  ff0000 0000ff}
+${voffset -10}${font Open Sans:bold:size=8.5}Ethernet $font$alignr ${addr eno1}
+↑ ${upspeedf eno1} kb/s $alignr ${totalup eno1}
+${voffset -14}$alignc${upspeedgraph eno1 10,120  ff0000 0000ff}
+↓ ${downspeedf eno1} kb/s $alignr ${totaldown eno1}
+${voffset -14}$alignc${downspeedgraph eno1 10,120  ff0000 0000ff}
 
 ${voffset -10}${font Open Sans:bold:size=8.5}WiFi $font${wireless_bitrate wlan0} $alignr ${addr wlan0}
 ${voffset -14}$alignc${wireless_essid wlan0}
